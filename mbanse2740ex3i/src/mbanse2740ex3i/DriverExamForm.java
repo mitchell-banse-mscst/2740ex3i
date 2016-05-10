@@ -194,7 +194,7 @@ public class DriverExamForm extends JFrame {
 		}
 		else 
 		{
-			if (exam.passed()) resultLabel.setText("Total Correct" + Integer.toString(exam.totalCorrect()));
+			if (exam.passed()) resultLabel.setText("Total Correct: " + Integer.toString(exam.totalCorrect()));
 		}
 	}
 	
@@ -207,11 +207,11 @@ public class DriverExamForm extends JFrame {
 		}
 		else 
 		{
-			if (exam.passed()) resultLabel.setText("Total Incorrect" + Integer.toString(exam.totalIncorrect()));
+			if (exam.passed()) resultLabel.setText("Total Incorrect: " + Integer.toString(exam.totalIncorrect()));
 		}
 	}
 	
-/*	protected void do_listIncorrectButton_actionPerformed(ActionEvent e) {
+	protected void do_listIncorrectButton_actionPerformed(ActionEvent e) {
 		int[] missed = exam.questionsMissed();
 		StringBuilder str = new StringBuilder("Incorrect: ");
 		this.exam.setResponses((DefaultListModel) responsesList.getModel());
@@ -223,12 +223,14 @@ public class DriverExamForm extends JFrame {
 		else
 		{
 			if (exam.passed()) {
-				for (int i = 0; i i++) {
+				int i = 0;
+				while (i < missed.length && missed[i] != 0) {
 					str.append(Integer.toString(missed[i]));
+					i++;
 				}
 			}
 		}
-	}*/
+	}
 	
 	protected void do_prevButton_actionPerformed(ActionEvent e) {
         this.responsesListModel.setElementAt(
