@@ -101,7 +101,7 @@ public class DriverExamForm extends JFrame {
 				do_calcPassButton_actionPerformed(arg0);
 			}
 		});
-		calcPassButton.setBounds(152, 107, 107, 25);
+		calcPassButton.setBounds(152, 107, 117, 25);
 		contentPane.add(calcPassButton);
 		
 		JButton calcCorrectButton = new JButton("Correct");
@@ -110,7 +110,7 @@ public class DriverExamForm extends JFrame {
 				do_calcCorrectButton_actionPerformed(e);
 			}
 		});
-		calcCorrectButton.setBounds(152, 132, 107, 25);
+		calcCorrectButton.setBounds(152, 132, 117, 25);
 		contentPane.add(calcCorrectButton);
 		
 		JButton calcIncorrectButton = new JButton("Incorrect");
@@ -119,7 +119,7 @@ public class DriverExamForm extends JFrame {
 				do_calcIncorrectButton_actionPerformed(e);
 			}
 		});
-		calcIncorrectButton.setBounds(152, 157, 107, 25);
+		calcIncorrectButton.setBounds(152, 157, 117, 25);
 		contentPane.add(calcIncorrectButton);
 		
 		JButton listIncorrectButton = new JButton("List Incorrect");
@@ -128,7 +128,7 @@ public class DriverExamForm extends JFrame {
 //				do_listIncorrectButton_actionPerformed(e);
 			}
 		});
-		listIncorrectButton.setBounds(152, 182, 107, 25);
+		listIncorrectButton.setBounds(152, 182, 117, 25);
 		contentPane.add(listIncorrectButton);
 		
 		questNumLabel = new JLabel("#0");
@@ -212,8 +212,7 @@ public class DriverExamForm extends JFrame {
 	}
 	
 	protected void do_listIncorrectButton_actionPerformed(ActionEvent e) {
-		int[] missed = exam.questionsMissed();
-		StringBuilder str = new StringBuilder("Incorrect: ");
+		
 		this.exam.setResponses((DefaultListModel) responsesList.getModel());
 		int invalid = this.exam.validate();
 		if (invalid >= 0){
@@ -223,11 +222,14 @@ public class DriverExamForm extends JFrame {
 		else
 		{
 			if (exam.passed()) {
+				int[] missed = exam.questionsMissed();
+				String result = "Incorrect: ";
 				int i = 0;
-				while (i < missed.length && missed[i] != 0) {
-					str.append(Integer.toString(missed[i]));
+				while (i < missed.length && missed[i]!= 0) {
+					result += missed[i] + " ";
 					i++;
 				}
+			resultLabel.setText(result);	
 			}
 		}
 	}

@@ -34,10 +34,10 @@ public class DriverExam {
 	
 	public DefaultListModel getAnswers() {
 		DefaultListModel answersListModel = new DefaultListModel();
-		this.answers = new char[answers.length];
+//		this.answers = new char[answers.length];
 		for (int i = 0; i < answers.length; i++) {
 			
-			String ans = Integer.toString(answers[i]);
+			String ans = Character.toString(answers[i]);
 			answersListModel.addElement(ans);
 		}
 		
@@ -90,11 +90,11 @@ public class DriverExam {
 	}
 	
 	public int[] questionsMissed() {
-		int[] missed = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+		int[] missed = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 		int m = 0;
 		for (int i =0; i < answers.length; i++)
 		{
-			if ((answers[i] != responses[i])) {
+			if (answers[i] != responses[i]) {
 				missed[m] = i + 1;
 				m++;
 			}
