@@ -125,7 +125,7 @@ public class DriverExamForm extends JFrame {
 		JButton listIncorrectButton = new JButton("List Incorrect");
 		listIncorrectButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//				do_listIncorrectButton_actionPerformed(e);
+				do_listIncorrectButton_actionPerformed(e);
 			}
 		});
 		listIncorrectButton.setBounds(152, 182, 117, 25);
